@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <math.h>
 #include "taxCalculator.h"
+#include "loanCalculator.h"
 
 // Functions
 void menu();
@@ -33,7 +34,7 @@ void menu(){
 				taxCalculator();
 				break;
 			case 2:
-				// loanCalculator();
+				loanCalculator();
 				break;
 			case 3:
 				// set savings goal
