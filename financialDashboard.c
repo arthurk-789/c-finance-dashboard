@@ -6,11 +6,11 @@
 #include <math.h>
 #include "taxCalculator.h"
 #include "loanCalculator.h"
+#include "retirementCalculator.h"
 
 // Functions
 void menu();
 int getOption();
-void loanCalculator();
 
 int main()
 {
