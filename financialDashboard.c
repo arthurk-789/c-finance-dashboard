@@ -27,6 +27,7 @@ void menu(){
 		printf ("1. Calculate Tax\n");
 		printf ("2. Calculate Loan\n");
 		printf ("3. Set Savings Goal\n");
+		printf ("4. 401(k) Retirement Plan\n");		
 		printf ("4. Exit\n");
 		int choice = getOption();
 		switch (choice) {
@@ -39,7 +40,11 @@ void menu(){
 			case 3:
 				// set savings goal
 				break;
-			case 4: // Exit
+			case 4:
+				retirementCalculator();
+				break;
+			case 5: // Exit
+				printf("\nThank you for using our program...\n\n");
 				return;
 		}
 	}
@@ -49,12 +54,16 @@ int getOption(){
 	int choice;
 	int checkValue;
 	do {
-	printf("Please enter your choice: ");
-	checkValue = scanf("%d", &choice); // checkValue = 1 (success) otherwise it is fail
-	if(choice < 1 || choice > 4){
-		printf("Invalid input. Please re-enter your choice!\n");
-	}
-	} while(choice < 1 || choice > 4);
+	    printf("Please enter your choice: ");
+	    checkValue = scanf("%d", &choice); // checkValue = 1 (success) otherwise it is fail
+	    while(getchar() != '\n'); //Clear the input buffer
+	    if(checkValue != 1){
+	        printf("Invalid input. Please re-enter your choice!\n");
+	    }
+	    else if(choice < 1 || choice > 5){
+			printf("Invalid input. Please re-enter your choice!\n");
+		}
+	} while(checkValue != 1 || choice < 1 || choice > 5);
 	
 	return choice;
 }
