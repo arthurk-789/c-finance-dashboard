@@ -7,6 +7,7 @@
 #include "taxCalculator.h"
 #include "loanCalculator.h"
 #include "retirementCalculator.h"
+#include "savingsTracker.h"
 
 // Functions
 void menu();
@@ -28,7 +29,7 @@ void menu(){
 		printf ("2. Calculate Loan\n");
 		printf ("3. Set Savings Goal\n");
 		printf ("4. 401(k) Retirement Plan\n");		
-		printf ("4. Exit\n");
+		printf ("5. Exit\n");
 		int choice = getOption();
 		switch (choice) {
 			case 1:
@@ -38,7 +39,7 @@ void menu(){
 				loanCalculator();
 				break;
 			case 3:
-				// set savings goal
+				savingsTracker();
 				break;
 			case 4:
 				retirementCalculator();
