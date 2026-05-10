@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 #include "savingsTracker.h"
 
 void savingsTracker() {
@@ -27,8 +28,15 @@ void savingsTracker() {
   amountLeft = goal - currentSavings;
 
   if (amountLeft <= 0) {
-    printf("Congrats you have hit your savings goal");
+    printf("Congrats you have hit your savings goal.\n");
     return;
   }
 
-  
+  monthsLeft = amountLeft/monthlySavings;
+
+  //Summary report of the savings
+  printf("\n-----Summary of your savings-----\n);
+  printf("Goal: $%.2f\n", goal);
+  printf("Your current savings: $%.2f\n", currentSavings);
+  printf("Amount left to save: $%.2f\n", amountLeft);
+  printf("Months left to reach goal: %.0f months\n", ceil(monthsLeft));
