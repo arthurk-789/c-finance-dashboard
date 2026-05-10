@@ -35,8 +35,9 @@ void savingsTracker() {
   monthsLeft = amountLeft/monthlySavings;
 
   //Summary report of the savings
-  printf("\n-----Summary of your savings-----\n);
+  printf("\n-----Summary of your savings-----\n");
   printf("Goal: $%.2f\n", goal);
   printf("Your current savings: $%.2f\n", currentSavings);
   printf("Amount left to save: $%.2f\n", amountLeft);
   printf("Months left to reach goal: %.0f months\n", ceil(monthsLeft));
+}
