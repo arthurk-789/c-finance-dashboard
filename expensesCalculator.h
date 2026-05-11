@@ -15,4 +15,6 @@ void inputCategories(Category categories[], int *count);
 void calculateExpenses(Category categories[], int count, float income);
 void displayExpenses(Category categories[], int count);
 
+void expensesCalculator();
+
 #endif
