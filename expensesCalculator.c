@@ -40,3 +40,22 @@ void displayExpenses(Category categories[], int count){
     printf("%s: %.2f%% -> $%.2f\n", categories[i].name, categories[i].percentage, categories[i].amount);
   }
 }
+
+void expensesCalculator(){
+
+  Category categories[MAX_CATEGORIES];
+  int count = 0;
+  float income;
+
+  printf("\nEnter your monthly income: $");
+  scanf("%f", &income);
+
+  inputCategories(categories, &count);
+
+  if(count == 0){
+    return;
+  }
+
+  calculateExpenses(catgories, count, income);
+  displayExpenses(categories, count);
+}
