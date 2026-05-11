@@ -9,6 +9,8 @@ void savingsTracker() {
   double amountLeft;
   double monthsLeft;
 
+  while (1) {
+
   printf("\n----- Savings Tracker -----\n");
   printf("Enter the amount of money you want to save: $");
   scanf("%lf", &goal);
@@ -22,7 +24,7 @@ void savingsTracker() {
   // Prompting user if they select numbers that will never finish the actual goal
   if (goal <= 0 || currentSavings < 0 || monthlySavings <= 0) {
     printf("Please enter values that will lead to completing your savings goal.\n");
-    return;
+    continue;
   }
 
   amountLeft = goal - currentSavings;
@@ -40,4 +42,7 @@ void savingsTracker() {
   printf("Your current savings: $%.2f\n", currentSavings);
   printf("Amount left to save: $%.2f\n", amountLeft);
   printf("Months left to reach goal: %.0f months\n", ceil(monthsLeft));
+
+  break;
+  }
 }
