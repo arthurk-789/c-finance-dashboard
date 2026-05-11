@@ -8,6 +8,7 @@
 #include "loanCalculator.h"
 #include "retirementCalculator.h"
 #include "savingsTracker.h"
+#include "expensesCalculator.h"
 
 // Functions
 void menu();
@@ -28,8 +29,9 @@ void menu(){
 		printf ("1. Calculate Tax\n");
 		printf ("2. Calculate Loan\n");
 		printf ("3. Set Savings Goal\n");
-		printf ("4. 401(k) Retirement Plan\n");		
-		printf ("5. Exit\n");
+		printf ("4. 401(k) Retirement Plan\n");	
+		printf ("5. Expenses Calculator\n");
+		printf ("6. Exit\n");
 		int choice = getOption();
 		switch (choice) {
 			case 1:
@@ -44,7 +46,10 @@ void menu(){
 			case 4:
 				retirementCalculator();
 				break;
-			case 5: // Exit
+			case 5:
+				expensesCalculator();
+				break;
+			case 6: // Exit
 				printf("\nThank you for using our program...\n\n");
 				return;
 		}
@@ -61,10 +66,10 @@ int getOption(){
 	    if(checkValue != 1){
 	        printf("Invalid input. Please re-enter your choice!\n");
 	    }
-	    else if(choice < 1 || choice > 5){
+	    else if(choice < 1 || choice > 6){
 			printf("Invalid input. Please re-enter your choice!\n");
 		}
-	} while(checkValue != 1 || choice < 1 || choice > 5);
+	} while(checkValue != 1 || choice < 1 || choice > 6);
 	
 	return choice;
 }
