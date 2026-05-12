@@ -11,35 +11,23 @@ void retirementCalculator(){
     
     double totalEmployeeContribution = 0;
     double totalEmployerContribution = 0;
+
     // Get user input
-    
     // Basic information
     printf("\n-----BASIC INFORMATION-----\n");
-    printf("Current age: ");
-    scanf("%d", &currentAge);
+    currentAge = getIntNumber("current age: ");
+    annualSalary = getDoubleNumber("Current annual salary: ");
+    currentBalance = getDoubleNumber("Current 401k balance: ");
+    contributionPercent = getDoubleNumber("Contribution (percentage of salary): ");
+    employerMatchPercent = getDoubleNumber("Employer match: ");
+    employerMatchLimit = getDoubleNumber("Employer match limit: ");
 
-    printf("Current annual salary: ");
-    scanf("%lf", &annualSalary);
-    printf("Current 401k balance: ");
-    scanf("%lf", &currentBalance);
-    printf("Contribution (%% of salary): ");
-    scanf("%lf", & contributionPercent);
-    printf("Employer match: ");
-    scanf("%lf", &employerMatchPercent);
-    printf("Employer match limit: ");
-    scanf("%lf", &employerMatchLimit);
-
-    // Projections
-    printf("\n-----PROJECTIONS INFORMATION-----\n");    
-    printf("Retirement age: ");
-    scanf("%d", &retirementAge);
-
-    printf("Expected salary increase: ");
-    scanf(" %lf", &salaryIncrease);
-    printf("Expected annual return: ");
-    scanf("%lf", &annualReturn);
-    printf("Expected inflation rate: ");
-    scanf("%lf", &inflationRate);
+    // Projections information
+    printf("\n-----PROJECTIONS INFORMATION-----\n");
+    retirementAge = getIntNumber("Retirement age: ");
+    salaryIncrease = getDoubleNumber("Expected salary increase: ");
+    annualReturn = getDoubleNumber("Expected annual return: ");
+    inflationRate = getDoubleNumber("Expected inflation rate: ");
 
     for (int year = currentAge; year < retirementAge; year++){
 
@@ -88,4 +76,40 @@ void retirementCalculator(){
 
     printf("\nPress enter to return to main menu...\n");
     getchar();
+}
+
+double getDoubleNumber(char prompt[]) {
+    double value;
+    char extra;
+    
+    do {
+        printf("%s", prompt);
+        // Check if input is double and no extra characters exist
+        if (scanf("%lf%c", &value, &extra) != 2 || extra != '\n') {
+            printf("Invalid input. Please enter a number.\n");
+            // Clear input buffer
+            while (getchar() != '\n');
+        }
+        else {
+            return value;
+        }
+    } while (1);
+}
+
+int getIntNumber(char prompt[]) {
+    int value;
+    char extra;
+
+    do {
+        printf("%s", prompt);
+        // Check if input is int and no extra characters exist
+        if (scanf("%d%c", &value, &extra) != 2 || extra != '\n') {
+            printf("Invalid input. Please enter a int number.\n");
+            // Clear input buffer
+            while (getchar() != '\n');
+        }
+        else {
+            return value;
+        }
+    } while (1);
 }
