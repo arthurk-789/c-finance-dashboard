@@ -19,10 +19,10 @@ void inputCategories(Category categories[], int *count){
     }
       break;
   }
-}
+
   float totalPercent = 0;
 
-  for (int i = 0; i< *count; i++){
+  for (int i = 0; i < *count; i++){
     printf("\n Enter category %d name: ", i +1);
     scanf(" %[^\n]", categories[i].name);
 
