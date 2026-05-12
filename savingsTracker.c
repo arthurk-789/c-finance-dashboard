@@ -13,13 +13,31 @@ void savingsTracker() {
 
   printf("\n----- Savings Tracker -----\n");
   printf("Enter the amount of money you want to save: $");
-  scanf("%lf", &goal);
+
+  if (scanf("%lf", &goal) != 1) {
+    printf("This is an invalid input, please enter a number.\n");
+
+    while (getchar() != '\n');
+    continue;
+  }
 
   printf("How much do you currently have saved: $");
-  scanf("%lf", &currentSavings);
+  
+  if (scanf("%lf", &currentSavings) != 1) {
+    printf("This is an invalid input, please enter a number.\n");
+
+    while (getchar() != '\n');
+    continue;
+  }
 
   printf("How much are you willing to save every month: $");
-  scanf("%lf", &monthlySavings);
+  
+  if (scanf("%lf", &monthlySavings) != 1) {
+    printf("This is an invalid input, please enter a number.\n");
+
+    while (getchar() != '\n');
+    continue;
+  }
 
   // Prompting user if they select numbers that will never finish the actual goal
   if (goal <= 0 || currentSavings < 0 || monthlySavings <= 0) {
