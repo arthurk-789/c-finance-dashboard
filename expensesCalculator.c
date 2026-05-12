@@ -2,15 +2,24 @@
 #include "expensesCalculator.h"
 
 void inputCategories(Category categories[], int *count){
-  printf("How many Categories do you need to fill out? (Car, Gas, Housing, etc) ");
-  scanf("%d", count);
+  while (1){
+    printf("How many Categories do you need to fill out? (Car, Gas, Housing, etc) ");
+    
+    if (scanf("%d", count) != 1){
+      printf("Invaild response: Please enter a valid number.\n");
 
-  if(*count > MAX_CATEGORIES || *count <= 0){
-    printf("Invalid number of categories.\n");
-    *count = 0;
-    return;
+      while (getchar() != '\n');
+
+      continue;
+    }
+
+    if(*count > MAX_CATEGORIES || *count <= 0){
+      printf("Invalid number of categories.\n");
+      continue;
+    }
+      break;
   }
-
+}
   float totalPercent = 0;
 
   for (int i = 0; i< *count; i++){
