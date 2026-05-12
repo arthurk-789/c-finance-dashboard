@@ -3,11 +3,16 @@
 #include "loanCalculator.h"
 
 float getInterestRate(int rating) {
-    if (rating == 1) return 0.04f; // excellent credit
-    if (rating == 2) return 0.06f; // good credit
-    if (rating == 3) return 0.08f; // fair credit
-    if (rating == 4) return 0.12f; // poor credit
-    if (rating == 5) return 0.10f; // unknown/default credit
+    if (rating == 1)
+        return 0.04f; // excellent credit
+    if (rating == 2)
+        return 0.06f; // good credit
+    if (rating == 3)
+        return 0.08f; // fair credit
+    if (rating == 4)
+        return 0.12f; // poor credit
+    if (rating == 5)
+        return 0.10f; // unknown/default credit
 
     return 0.10f; // default if invalid choice
 }
@@ -35,7 +40,8 @@ void loanCalculator() {
         scanf("%f", &annualRate);
 
         annualRate = annualRate / 100.0f;
-    } else {
+    }
+    else {
         printf("What is your approximate credit rating:\n");
         printf("1. Excellent\n");
         printf("2. Good\n");
@@ -57,4 +63,10 @@ void loanCalculator() {
                      (pow(1 + monthlyRate, months) - 1);
 
     printf("\nMonthly Payment: $%.2f\n", monthlyPayment);
+
+    float totalPaid = monthlyPayment * months;
+    float totalInterest = totalPaid - loanAmount;
+
+    printf("Total Amount Paid: $%.2f\n", totalPaid);
+    printf("Total Interest Paid: $%.2f\n", totalInterest);
 }
