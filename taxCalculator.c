@@ -113,8 +113,13 @@ enum State parseState(const char* input) {
 
 void fillTaxProfile(struct TaxProfile *profile) {
 	printf("\n--- Constructing Tax Profile ---\n");
+	
+	// Validate income
 	printf("What is your yearly income: ");
-	scanf("%lf", &profile->income);
+	while (scanf("%lf", &profile->income) != 1) {
+		printf("Invalid input. Please enter a number: ");
+		while (getchar() != '\n'); // clear bad inputs
+	}
 	printf("\nWhat is your marital status (m = MARRIED, s = SINGLE): ");
 	int validInput = 0;
 	while (!validInput) {
@@ -142,8 +147,13 @@ void fillTaxProfile(struct TaxProfile *profile) {
 		state = parseState(input);
 	}
 	profile->state = state;
+
+	// Validate dependents
 	printf("\nHow many dependents do you have: ");
-	scanf("%d", &profile->numDependents);
+	while (scanf("%d", &profile->numDependents) != 1) {
+		printf("Invalid input. Please enter a number: ");
+		while (getchar() != '\n'); // clear bad inputs
+	}
 }
 
 void taxCalculator() {
