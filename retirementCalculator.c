@@ -31,7 +31,7 @@ void retirementCalculator(){
 
     for (int year = currentAge; year < retirementAge; year++){
 
-        employeeContribution = annualSalary * (contributionPercent / 100.0); //employee contributes to the retirement accoutn
+        employeeContribution = annualSalary * (contributionPercent / 100.0); //employee contributes to the retirement account
 
         //Determine employer matched percentage
         double matchPercent;
